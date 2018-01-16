@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
+import { PublicModule } from './public/public.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+
+    PublicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

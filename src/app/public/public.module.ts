@@ -1,25 +1,45 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { HistoryComponent } from './history/history.component';
-import { CalenderComponent } from './calender/calender.component';
-import { ContactComponent } from './contact/contact.component';
-import { ImagesComponent } from './images/images.component';
-import { NewsComponent } from './news/news.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { HistoryComponent } from './components/history/history.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ImagesComponent } from './components/images/images.component';
+import { NewsComponent } from './components/news/news.component';
+import { PublicComponent } from './public.component';
+import { PublicRoutingModule } from './PublicRoutingModule';
 
-@NgModule({  declarations: [
-  HeaderComponent,
-  HomeComponent,
-  HistoryComponent,
-  CalenderComponent,
-  ContactComponent,
-  ImagesComponent,
-  NewsComponent
-],
+@NgModule({
+  declarations: [
+    HeaderComponent,
+    HomeComponent,
+    HistoryComponent,
+    CalendarComponent,
+    ContactComponent,
+    ImagesComponent,
+    NewsComponent,
+    PublicComponent
+  ],
   imports: [
-    CommonModule
-  ]
+    PublicRoutingModule
+  ],
+  exports: [
+    HeaderComponent,
+    HomeComponent,
+    HistoryComponent,
+    CalendarComponent,
+    ContactComponent,
+    ImagesComponent,
+    NewsComponent
+  ],
+  providers: [ ]
 })
-export class PublicModule { }
+export class PublicModule {
+  static forRoot(config?: {}): ModuleWithProviders {
+    return {
+      ngModule: PublicModule,
+      providers: [ ]
+    };
+  }
+}
